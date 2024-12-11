@@ -1,9 +1,26 @@
 import readlinesync = require("readline-sync");
 import { colors } from './src/util/colors';
+import { Conta } from "./src/model/Conta";
+
 export function main() {
+
 
     let opcao: number;
     let continuar = true;
+
+    const c1 = new Conta(1, 500, 1, "gabriel", 20000);
+    c1.visualizar();
+
+    console.log(c1.sacar(200));
+    c1.visualizar();
+
+    const c2 = new Conta(2, 400, 2, "jonas", 2000);
+    c2.visualizar();
+
+    c2.depositar(100.00)
+    c2.visualizar();
+
+
 
     while (continuar) {
         console.log(colors.bg.magenta, colors.fg.blue)
@@ -28,15 +45,15 @@ export function main() {
         console.log("******************************************");
         console.log("******************************************");
         console.log(
-        colors.reset);
+            colors.reset);
 
         console.log("entre com a opcao desejada: ")
         opcao = readlinesync.questionInt();
-     
+
         switch (opcao) {
             case 1:
-                console.log(colors.fg.magenta, "\n\ncriar contas\n\n",colors.reset);
-                
+                console.log(colors.fg.magenta, "\n\ncriar contas\n\n", colors.reset);
+
                 break;
             case 2:
                 console.log("\n\nlistar todas as contas\n\n");
@@ -57,16 +74,16 @@ export function main() {
             case 6:
                 console.log("\n\nsacar\n\n");
 
-                break; 
+                break;
             case 7:
                 console.log("\n\ndepositar\n\n");
-                break;  
+                break;
             case 8:
                 console.log("\n\ntranferencia entre contas\n\n");
                 break;
-                    
+
             case 0:
-                sobre ();
+                sobre();
                 continuar = false;
 
                 break;
@@ -96,7 +113,7 @@ export function sobre(): void {
 }
 
 
-main()
+main();
 
 
 
